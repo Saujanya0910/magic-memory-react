@@ -50,14 +50,14 @@ function App() {
             }
           })
         })
-
+        
+        resetTurn()
       } else {
         console.log("donot match :(")
+        // reset the turn after a small delay
+        setTimeout(() => resetTurn(), 700)
       }
-
-      resetTurn()
     }
-
 
     return () => {}
   }, [choiceOne, choiceTwo])
@@ -81,6 +81,7 @@ function App() {
             key={card.id}
             card={card} 
             handleChoice={handleChoice}
+            flipped={ card === choiceOne || card === choiceTwo || card.matched }
           />
         ))) }
       </div>
