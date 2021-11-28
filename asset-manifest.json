@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Saujanya0910/magic-memory-react/static/css/main.6ae41213.chunk.css",
+    "main.js": "/Saujanya0910/magic-memory-react/static/js/main.e9edb707.chunk.js",
+    "main.js.map": "/Saujanya0910/magic-memory-react/static/js/main.e9edb707.chunk.js.map",
+    "runtime-main.js": "/Saujanya0910/magic-memory-react/static/js/runtime-main.ff7cc14a.js",
+    "runtime-main.js.map": "/Saujanya0910/magic-memory-react/static/js/runtime-main.ff7cc14a.js.map",
+    "static/js/2.1965c1de.chunk.js": "/Saujanya0910/magic-memory-react/static/js/2.1965c1de.chunk.js",
+    "static/js/2.1965c1de.chunk.js.map": "/Saujanya0910/magic-memory-react/static/js/2.1965c1de.chunk.js.map",
+    "index.html": "/Saujanya0910/magic-memory-react/index.html",
+    "static/css/main.6ae41213.chunk.css.map": "/Saujanya0910/magic-memory-react/static/css/main.6ae41213.chunk.css.map",
+    "static/js/2.1965c1de.chunk.js.LICENSE.txt": "/Saujanya0910/magic-memory-react/static/js/2.1965c1de.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff7cc14a.js",
+    "static/js/2.1965c1de.chunk.js",
+    "static/css/main.6ae41213.chunk.css",
+    "static/js/main.e9edb707.chunk.js"
+  ]
+}
