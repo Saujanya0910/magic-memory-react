@@ -1,6 +1,6 @@
 import './App.css';
-import { React, useState } from 'react'
 import Singlecard from './components/SingleCard';
+import { useEffect, React, useState } from 'react';
 
 const cardImages = [
   { "src": "/img/helmet-1.png" },
@@ -15,6 +15,8 @@ function App() {
 
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo] = useState(null)
 
   // shuffle cards
   const shuffleCards = () => {
@@ -26,6 +28,31 @@ function App() {
     setTurns(0)
   }
 
+  // handle choices
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
+
+  useEffect(() => {
+    if(choiceOne && choiceTwo) {
+      if(choiceTwo.src === choiceOne.src) {
+        console.log("matching cards :)")
+        resetTurn()
+      } else {
+        console.log("donot match :(")
+        resetTurn()
+      }
+    }
+
+    return () => {}
+  }, [choiceOne, choiceTwo])
+
+  const resetTurn = () => {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns(prevTurns => prevTurns + 1)
+  }
+
   return (
     <div className="App">
       <h1>Magic Match</h1>
@@ -33,7 +60,11 @@ function App() {
 
       <div className="card-grid">
         { cards.map(card => ((
-          <Singlecard card={card} key={card.key}/>
+          <Singlecard 
+            key={card.id}
+            card={card} 
+            handleChoice={handleChoice}
+          />
         ))) }
       </div>
     </div>
