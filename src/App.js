@@ -3,12 +3,12 @@ import Singlecard from './components/SingleCard';
 import { useEffect, React, useState } from 'react';
 
 const cardImages = [
-  { "src": "/img/helmet-1.png" },
-  { "src": "/img/potion-1.png" },
-  { "src": "/img/ring-1.png" },
-  { "src": "/img/scroll-1.png" },
-  { "src": "/img/shield-1.png" },
-  { "src": "/img/sword-1.png" }
+  { "src": "/img/helmet-1.png", matched: false },
+  { "src": "/img/potion-1.png", matched: false },
+  { "src": "/img/ring-1.png", matched: false },
+  { "src": "/img/scroll-1.png", matched: false },
+  { "src": "/img/shield-1.png", matched: false },
+  { "src": "/img/sword-1.png", matched: false }
 ]
 
 function App() {
@@ -35,17 +35,34 @@ function App() {
 
   useEffect(() => {
     if(choiceOne && choiceTwo) {
+      // if cards match
       if(choiceTwo.src === choiceOne.src) {
         console.log("matching cards :)")
-        resetTurn()
+        
+        // update cards' matching status to true
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if(card.src === choiceOne.src) {
+              return {...card, matched: true}
+            }
+            else {
+              return card
+            }
+          })
+        })
+
       } else {
         console.log("donot match :(")
-        resetTurn()
       }
+
+      resetTurn()
     }
+
 
     return () => {}
   }, [choiceOne, choiceTwo])
+
+  console.log(cards)
 
   const resetTurn = () => {
     setChoiceOne(null)
